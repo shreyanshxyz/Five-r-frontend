@@ -3,6 +3,7 @@ import "./Navbar.scss";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  // UseState to execute the Navbar color change on scroll
   const [active, setActive] = useState(false);
   return (
     <div className={active ? "navbar active" : "navbar"}>

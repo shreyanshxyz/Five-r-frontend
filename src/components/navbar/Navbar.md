@@ -9,3 +9,5 @@ Please note that this is the way I'm documenting this code for my personal use s
   - The lower navbar is to be shown only when scrolling.
   - The navbar remains sticky
   - React-router-functionality
+
+### Snippets
