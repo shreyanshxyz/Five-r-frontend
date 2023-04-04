@@ -1,4 +1,4 @@
-#Navigation Bar
+# Navigation Bar
 
 Please note that this is the way I'm documenting this code for my personal use so that retaining it will be easier further down the line. You are free to use it/give suggestions as well.
 
