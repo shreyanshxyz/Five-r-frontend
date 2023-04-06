@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Navbar = () => {
   // UseState to execute the Navbar color change on scroll
   const [active, setActive] = useState(false);
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll");
+  // }, []);
+
   return (
     <div className={active ? "navbar active" : "navbar"}>
       <div className="container">
@@ -23,18 +28,22 @@ const Navbar = () => {
           <button>Join</button>
         </div>
       </div>
-      <hr />
-      <div className="menu">
-        <span>Waddup</span>
-        <span>Waddup</span>
-        <span>Waddup</span>
-        <span>Waddup</span>
-        <span>Waddup</span>
-        <span>Waddup</span>
-        <span>Waddup</span>
-        <span>Waddup</span>
-        <span>Waddup</span>
-      </div>
+      {active && (
+        <>
+          <hr />
+          <div className="menu">
+            <span>Waddup</span>
+            <span>Waddup</span>
+            <span>Waddup</span>
+            <span>Waddup</span>
+            <span>Waddup</span>
+            <span>Waddup</span>
+            <span>Waddup</span>
+            <span>Waddup</span>
+            <span>Waddup</span>
+          </div>
+        </>
+      )}
     </div>
   );
 };

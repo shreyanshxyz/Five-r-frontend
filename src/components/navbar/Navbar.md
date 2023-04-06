@@ -11,3 +11,14 @@ Please note that this is the way I'm documenting this code for my personal use s
   - React-router-functionality
 
 ### Snippets
+
+    <>
+      <hr />
+      <div>
+        ...
+        ...
+        ...
+      </div>
+    </>
+
+These are React Fragments. In Case Someone Wants to return more than two elements in a react component without using a div, we can use the react fragments. This does help us in decluttering our HTML app since we do not need to use useless divs again and again.
