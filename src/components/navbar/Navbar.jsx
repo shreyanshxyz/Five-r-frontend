@@ -6,9 +6,12 @@ const Navbar = () => {
   // UseState to execute the Navbar color change on scroll
   const [active, setActive] = useState(false);
 
+  // The isActive function sets the isActive as true if the scrolling is done any bit.
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
   };
+
+  // This useEffect function is used to make an event on scroll. When the screen is being scrolled, it invokes the isActive function. The return part is for the cleanup.
   useEffect(() => {
     window.addEventListener("scroll", isActive);
 
@@ -16,6 +19,12 @@ const Navbar = () => {
       window.removeEventListener("scroll", isActive);
     };
   }, []);
+
+  const currentUser = {
+    id: 1,
+    username: "Lelouch",
+    isSeller: true,
+  };
 
   return (
     <div className={active ? "navbar active" : "navbar"}>
