@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.scss";
-// import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   // UseState to execute the Navbar color change on scroll
   const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const { pathname } = useLocation();
 
   // The isActive function sets the isActive as true if the scrolling is done any bit.
   const isActive = () => {
@@ -27,39 +30,90 @@ const Navbar = () => {
   };
 
   return (
-    <div className={active ? "navbar active" : "navbar"}>
+    <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
-        {/* <Link to="/"> */}
-        <div className="logo">
-          <span className="text">Five-r</span>
-          <span className="dot">.</span>
-        </div>
-        {/* </Link> */}
+        <Link to="/" className="link">
+          <div className="logo">
+            <span className="text">Five-r</span>
+            <span className="dot">.</span>
+          </div>
+        </Link>
         <div className="links">
           <span>Business</span>
           <span>Explore</span>
           <span>English</span>
           <span>Sign In</span>
-          <span>Sell!</span>
-          <button>Join</button>
+          {!currentUser?.isSeller && <span>Sell!</span>}
+          {!currentUser && <button>Join</button>}
+          {currentUser && (
+            <div className="user" onClick={() => setOpen(!open)}>
+              <img
+                src="https://i.pinimg.com/564x/fc/bd/75/fcbd75425257369dcd0a84acd3570efc.jpg"
+                alt=""
+              />
+              <span>{currentUser?.username}</span>
+              {open && (
+                <div className="options">
+                  {currentUser?.isSeller && (
+                    <>
+                      <Link className="link" to="/mygigs">
+                        Gigs
+                      </Link>
+                      <Link className="link" to="/add">
+                        Add new Gig
+                      </Link>
+                    </>
+                  )}
+                  <Link className="link" to="/orders">
+                    Orders
+                  </Link>
+                  <Link className="link" to="/messages">
+                    Messages
+                  </Link>
+                  <Link className="link" to="/logout">
+                    Logout
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
-      {active && (
-        <>
-          <hr />
-          <div className="menu">
-            <span>Waddup</span>
-            <span>Waddup</span>
-            <span>Waddup</span>
-            <span>Waddup</span>
-            <span>Waddup</span>
-            <span>Waddup</span>
-            <span>Waddup</span>
-            <span>Waddup</span>
-            <span>Waddup</span>
-          </div>
-        </>
-      )}
+      {active ||
+        (pathname !== "/" && (
+          <>
+            <hr />
+            <div className="menu">
+              <Link className="link menuLink" to="/">
+                Graphics & Design
+              </Link>
+              <Link className="link menuLink" to="/">
+                Video & Animation
+              </Link>
+              <Link className="link menuLink" to="/">
+                Writing & Translation
+              </Link>
+              <Link className="link menuLink" to="/">
+                AI Services
+              </Link>
+              <Link className="link menuLink" to="/">
+                Digital Marketing
+              </Link>
+              <Link className="link menuLink" to="/">
+                Music & Audio
+              </Link>
+              <Link className="link menuLink" to="/">
+                Programming & Tech
+              </Link>
+              <Link className="link menuLink" to="/">
+                Business
+              </Link>
+              <Link className="link menuLink" to="/">
+                Lifestyle
+              </Link>
+            </div>
+          </>
+        ))}
     </div>
   );
 };
