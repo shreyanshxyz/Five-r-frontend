@@ -15,7 +15,7 @@ const Home = () => {
       <TrustedBy />
       <Slide slidesToShow={5} arrowsScroll={5}>
         {cards.map((card) => (
-          <CatCard key={card.id} card={card} />
+          <CatCard key={card.id} card={card} /> // The card is the prop which we pass to the catCard component
         ))}
       </Slide>
       <div className="features">
@@ -187,7 +187,7 @@ const Home = () => {
       </div>
       <Slide slidesToShow={4} arrowsScroll={4}>
         {projects.map((card) => (
-          <ProjectCard key={card.id} card={card} />
+          <ProjectCard key={card.id} card={card} /> // The card is the prop which we pass to the projectCard component
         ))}
       </Slide>
     </div>
