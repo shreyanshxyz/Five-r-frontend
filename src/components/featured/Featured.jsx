@@ -2,7 +2,7 @@ import React from "react";
 import "./Featured.scss";
 
 function Featured() {
-  // Just a general footer
+  // Just a general section
   return (
     <div className="featured">
       <div className="container">
