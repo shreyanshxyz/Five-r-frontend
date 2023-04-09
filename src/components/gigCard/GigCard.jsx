@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const GigCard = ({ item }) => {
   return (
+    // a card of a gig which redirects to the page linked. the props are again passed down from the database and are passed through the gigs.jsx page
     <Link to="/gig/123" className="link">
       <div className="gigCard">
         <img src={item.img} alt="" />
