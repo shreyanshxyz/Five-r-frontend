@@ -9,6 +9,7 @@ import ProjectCard from "../../components/projectCard/ProjectCard";
 
 const Home = () => {
   return (
+    // The homepage, the page which is at the root address. Contains the components "Featured" "TrustedBy" and others + two sliders
     <div className="home">
       <Featured />
       <TrustedBy />
