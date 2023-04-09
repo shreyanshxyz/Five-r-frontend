@@ -4,6 +4,7 @@ import { Slider } from "infinite-react-carousel/lib";
 
 function Gig() {
   return (
+    // Placeholder to be changed to dynamic later when we move ahead to the backend
     <div className="gig">
       <div className="container">
         <div className="left">
