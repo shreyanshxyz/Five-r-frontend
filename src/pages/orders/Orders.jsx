@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Orders.scss";
 
 const Orders = () => {
+  // Dummy information for the example of the current user logged in
   const currentUser = {
     id: 1,
     username: "Lelouch",
@@ -20,6 +21,7 @@ const Orders = () => {
             <th>Image</th>
             <th>Title</th>
             <th>Price</th>
+            {/* Condition is that if the logged in user is a Seller, the list of their orders will be considered as buyers, vice versa for sellers */}
             {<th>{currentUser.isSeller ? "Buyer" : "Seller"}</th>}
             <th>Contact</th>
           </tr>
