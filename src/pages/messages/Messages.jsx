@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Messages.scss";
 
 const Messages = () => {
+  // Dummy information for the example of the current user logged in
   const currentUser = {
     id: 1,
     username: "Lelouch",
@@ -22,6 +23,7 @@ const Messages = () => {
         </div>
         <table>
           <tr>
+            {/* Again if the current user is a seller then it will be displaying other messages as buyer else vice versa */}
             <th>{currentUser.isSeller ? "Buyer" : "Seller"}</th>
             <th>Last Message</th>
             <th>Date</th>
