@@ -3,6 +3,7 @@ import "./Add.scss";
 
 const Add = () => {
   return (
+    // Just a placeholder page right now to set the template for the adding a gig page
     <div className="add">
       <div className="container">
         <h1>Add New Gig</h1>
