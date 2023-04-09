@@ -4,6 +4,7 @@ import "./Message.scss";
 
 const Message = () => {
   return (
+    // Normal Template for the Chat between the buyer and seller
     <div className="message">
       <div className="container">
         <span className="breadcrumbs">
