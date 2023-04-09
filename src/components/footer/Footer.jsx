@@ -3,6 +3,7 @@ import "./Footer.scss";
 
 function Footer() {
   return (
+    // General footer
     <div className="footer">
       <div className="container">
         <div className="top">
