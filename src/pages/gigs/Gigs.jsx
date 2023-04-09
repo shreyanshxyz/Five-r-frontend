@@ -56,6 +56,8 @@ function Gigs() {
             )}
           </div>
         </div>
+
+        {/* We import the gigs from the data.js and then map them all. Displaying them through GigCard component and then passing each of the gig as a prop */}
         <div className="cards">
           {gigs.map((gig) => (
             <GigCard key={gig.id} item={gig} />
