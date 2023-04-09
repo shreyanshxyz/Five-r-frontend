@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./MyGigs.scss";
 
 function MyGigs() {
+  // Dummy information for the example of the current user logged in
   const currentUser = {
     id: 1,
     username: "Lelouch",
@@ -13,6 +14,7 @@ function MyGigs() {
     <div className="myGigs">
       <div className="container">
         <div className="title">
+          {/* If the current user is a seller then we show their "listed gigs", else we display their orders */}
           <h1>{currentUser.isSeller ? "Gigs" : "Orders"}</h1>
           {currentUser.isSeller && (
             <Link to="/add">
