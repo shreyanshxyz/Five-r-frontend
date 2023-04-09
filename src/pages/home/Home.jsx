@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="home">
       <Featured />
-      ``
+
       <TrustedBy />
       <Slide slidesToShow={5} arrowsScroll={5}>
         {cards.map((card) => (
