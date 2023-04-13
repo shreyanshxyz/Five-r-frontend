@@ -42,7 +42,9 @@ const Navbar = () => {
           <span>Business</span>
           <span>Explore</span>
           <span>English</span>
-          <span>Sign In</span>
+          <Link to="/login" className="link">
+            Sign in
+          </Link>
           {!currentUser?.isSeller && <span>Sell!</span>}
           {!currentUser && <button>Join</button>}
           {currentUser && (
