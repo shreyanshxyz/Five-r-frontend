@@ -40,40 +40,36 @@ const Navbar = () => {
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
-        <Link to="/" className="link">
-          <div className="logo">
-            <span className="text">Five-r</span>
-            <span className="dot">.</span>
-          </div>
-        </Link>
+        <div className="logo">
+          <Link className="link" to="/">
+            <span className="text">fiverr</span>
+          </Link>
+          <span className="dot">.</span>
+        </div>
         <div className="links">
           <span>Business</span>
           <span>Explore</span>
           <span>English</span>
-          <Link to="/login" className="link">
-            Sign in
-          </Link>
-          {!currentUser?.isSeller && <span>Sell!</span>}
-          {!currentUser && <button>Join</button>}
-          {currentUser && (
+          {!currentUser?.isSeller && <span>Become a Seller</span>}
+          {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
               <img
                 src={
                   currentUser.img ||
-                  "https://i.pinimg.com/564x/fc/bd/75/fcbd75425257369dcd0a84acd3570efc.jpg"
+                  "https://i.pinimg.com/564x/6f/32/e1/6f32e19888a8949b86223e2641941751.jpg"
                 }
                 alt=""
               />
               <span>{currentUser?.username}</span>
               {open && (
                 <div className="options">
-                  {currentUser?.isSeller && (
+                  {currentUser.isSeller && (
                     <>
                       <Link className="link" to="/mygigs">
                         Gigs
                       </Link>
                       <Link className="link" to="/add">
-                        Add new Gig
+                        Add New Gig
                       </Link>
                     </>
                   )}
@@ -83,12 +79,21 @@ const Navbar = () => {
                   <Link className="link" to="/messages">
                     Messages
                   </Link>
-                  <Link className="link" to="/logout" onClick={handleLogout}>
+                  <Link className="link" onClick={handleLogout}>
                     Logout
                   </Link>
                 </div>
               )}
             </div>
+          ) : (
+            <>
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
+              <Link className="link" to="/register">
+                <button>Join</button>
+              </Link>
+            </>
           )}
         </div>
       </div>
