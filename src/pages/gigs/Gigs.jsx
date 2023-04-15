@@ -19,7 +19,7 @@ function Gigs() {
     queryFn: () =>
       newRequest
         .get(
-          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}`
+          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort${sort}`
         )
         .then((res) => {
           return res.data;
@@ -34,6 +34,7 @@ function Gigs() {
     setOpen(false);
   };
 
+  // Refetch Our Gigs Whenever Sort Changes
   useEffect(() => {
     refetch();
   }, [sort]);
@@ -71,7 +72,7 @@ function Gigs() {
                 {sort === "sales" ? (
                   <span onClick={() => reSort("createdAt")}>Newest</span>
                 ) : (
-                  <span onClick={() => reSort("sales")}>Best Selling</span>
+                  <span onClick={() => reSort("price")}>Best Selling</span>
                 )}
                 <span onClick={() => reSort("sales")}>Popular</span>
               </div>
