@@ -13,12 +13,13 @@ function Gigs() {
 
   const { search } = useLocation();
 
+  console.log(location);
   const { isLoading, error, data, refetch } = useQuery({
-    queryKey: ["gigs"],
+    queryKey: ["repoData"],
     queryFn: () =>
       newRequest
         .get(
-          `gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}`
+          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}`
         )
         .then((res) => {
           return res.data;
