@@ -20,12 +20,14 @@ function Register() {
 
   const handleChange = (e) => {
     setUser((prev) => {
+      // the line here below states that we take the previous object (prev) and then spread it so it all stays the same, then we choose the e.target.name which is the targeted value we need to change and then replace it with the current value
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
 
   const handleSeller = (e) => {
     setUser((prev) => {
+      // the line here below states that we take the previous object (prev) and then spread it so it all stays the same, then we choose the e.target.checked which is the targeted value we need to change and then replace it with the current value
       return { ...prev, isSeller: e.target.checked };
     });
   };
