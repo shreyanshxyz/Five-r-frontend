@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Gigs.scss";
 import GigCard from "../../components/gigCard/GigCard";
 import { useQuery } from "@tanstack/react-query";
@@ -11,12 +11,14 @@ function Gigs() {
   const minRef = useRef();
   const maxRef = useRef();
 
+  const { search } = useLocation();
+
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["gigs"],
     queryFn: () =>
       newRequest
         .get(
-          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
+          `gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}`
         )
         .then((res) => {
           return res.data;
@@ -24,14 +26,19 @@ function Gigs() {
   });
 
   // reSort function to set the sorting type and close the dropdown menu
+  console.log(data);
+
   const reSort = (type) => {
     setSort(type);
     setOpen(false);
   };
 
+  useEffect(() => {
+    refetch();
+  }, [sort]);
+
   const apply = () => {
-    console.log(minRef.current.value);
-    console.log(maxRef.current.value);
+    refetch();
   };
 
   return (
@@ -73,11 +80,11 @@ function Gigs() {
 
         {/* We import the gigs from the data.js and then map them all. Displaying them through GigCard component and then passing each of the gig as a prop */}
         <div className="cards">
-          {isPending
+          {isLoading
             ? "loading"
             : error
             ? "Something went wrong"
-            : gigs.map((gig) => <GigCard key={gig.id} item={gig} />)}
+            : data.map((gig) => <GigCard key={gig._id} item={gig} />)}
         </div>
       </div>
     </div>
