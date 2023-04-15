@@ -5,8 +5,9 @@ const upload = async (file) => {
   data.append("file", file);
   data.append("upload_preset", "fiverr");
 
+  const uri = "https://api.cloudinary.com/v1_1/diztz1dlo/image";
   try {
-    const res = await axios.post(import.meta.env.VITE_UPLOAD_LINK, data);
+    const res = await axios.post(uri, data);
 
     const { url } = res.data;
     return url;
@@ -16,3 +17,4 @@ const upload = async (file) => {
 };
 
 export default upload;
+// import.meta.env.VITE_UPLOAD_LINK
