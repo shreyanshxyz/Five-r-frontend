@@ -24,11 +24,13 @@ function App() {
   const Layout = () => {
     return (
       <div className="app">
-        <Navbar />
-        {/* An <Outlet> is used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route. */}
-        {/* This element will render either the Children of router if it is any of their endpoints or home if it is "/" */}
-        <Outlet />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <Navbar />
+          {/* An <Outlet> is used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route. */}
+          {/* This element will render either the Children of router if it is any of their endpoints or home if it is "/" */}
+          <Outlet />
+          <Footer />
+        </QueryClientProvider>
       </div>
     );
   };
